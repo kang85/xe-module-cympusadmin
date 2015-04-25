@@ -8,8 +8,8 @@
 	<description xml:lang="en">CYMPUS Manager module</description>
 	<description xml:lang="jp">CYMPUSマネージャーモジュール</description>
 	<description xml:lang="zh-TW">CYMPUS管理模組</description>	
-	<version>1.3</version>
-	<date>2014-06-24</date>
+	<version>1.4</version>
+	<date>2015-04-26</date>
 	<category>system</category>
 	<author email_address="contact@nurigo.net" link="http://www.nurigo.net">
 		<name xml:lang="ko">NURIGO</name>
