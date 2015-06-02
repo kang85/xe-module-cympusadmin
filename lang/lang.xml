@@ -168,6 +168,18 @@
 		<value xml:lang="jp"><![CDATA[http://www.cympus.com]]></value>
 		<value xml:lang="zh-TW"><![CDATA[http://www.mastel.com.tw]]></value>		
 	</item>
+	<item name="site_management">
+                <value xml:lang="ko"><![CDATA[사이트관리]]></value>
+                <value xml:lang="en"><![CDATA[Site Management]]></value>
+                <value xml:lang="jp"><![CDATA[サイト管理]]></value>
+                <value xml:lang="zh-TW"><![CDATA[網站管理]]></value>
+	</item>
+	<item name="site_status">
+		<value xml:lang="ko"><![CDATA[전체현황]]></value>
+		<value xml:lang="en"><![CDATA[Site Status]]></value>
+		<value xml:lang="jp"><![CDATA[サイト現状]]></value>
+		<value xml:lang="zh-TW"><![CDATA[網站狀態]]></value>
+	</item>
 
 	<item name="about_dashboard">
 		<value xml:lang="ko"><![CDATA[더욱 세밀한 환경설정을 하실 수 있습니다.]]></value>

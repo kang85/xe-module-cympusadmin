@@ -20,8 +20,9 @@ class cympusadminModel extends cympusadmin
 		$list = $output->data;
 
 		$menu = new stdClass();
-		$menu->title = '사이트관리';
+		$menu->title = Context::getLang('site_management');
 		$menu->icon = 'dashboard';
+		$menu->module = 'cympusadmin';
 		$menu->submenu = array();
 
         foreach($list as $key => $val)
@@ -32,7 +33,8 @@ class cympusadminModel extends cympusadmin
 				$submenu = new stdClass();
 				$submenu->action = array('dispCympusadminAdminIndex');
 				$submenu->mid = $val->mid;
-				$submenu->title = '전체현황';
+				$submenu->title = Context::getLang('site_status');
+				$submenu->module = 'cympusadmin';
 				$menu->submenu[] = $submenu;
             }
         }
