@@ -40,7 +40,7 @@ function getCympusStatus()
 
 	// contents-mall
 	$oNstore_digitalAdminModel = &getAdminModel('nstore_digital');
-	if($oNstore_digitalAdminModel && ($logged_info->is_admin == 'Y' || $cympusadmin_menu['nstore']))
+	if($oNstore_digitalAdminModel && ($logged_info->is_admin == 'Y' || $cympusadmin_menu['nstore_digital']))
 	{
 		$salesInfoToday = $oNstore_digitalAdminModel->getSalesInfo($today);
 		$salesInfoTotal = $oNstore_digitalAdminModel->getSalesInfo();
@@ -53,7 +53,7 @@ function getCympusStatus()
 
 	// elearning
 	$oElearningAdminModel = &getAdminModel('elearning');
-	if($oElearningAdminModel && ($logged_info->is_admin == 'Y' || $cympusadmin_menu['nstore']))
+	if($oElearningAdminModel && ($logged_info->is_admin == 'Y' || $cympusadmin_menu['elearning']))
 	{
 		$salesInfoToday = $oElearningAdminModel->getSalesInfo($today);
 		$salesInfoTotal = $oElearningAdminModel->getSalesInfo();
