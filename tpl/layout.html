@@ -3,6 +3,7 @@
 <load target="js/toggle.js" />
 <load target="js/updatenews.js" />
 {@$oElearningClass = &getClass('elearning')}
+
 <div id="admin_wrap">
 	<div class="left_panel">
 		<h1><a href="{getUrl('','module','cympusadmin')}">{$lang->title_admin}</a></h1>
@@ -29,7 +30,9 @@
 					<block cond="$val->selected">{@$selected_submenu=$val}</block>
 					<ul cond="$val->submenu" id="opqrst_sub" class="opqrst_sub_{$idxno - 1}">
 						<li loop="$val->submenu=>$key2,$val2">
-							<a href="{getUrl('','module','cympusadmin','act',$val2->action[0])}" class="active"|cond="$val2->selected" title="{strip_tags($val2->description)}">{$val2->title}</a>
+							<block cond="!$val2->mid">{@$url = getUrl('','module','cympusadmin','act',$val2->action[0])}</block>
+							<block cond="$val2->mid">{@$url = getUrl('','mid',$val2->mid,'act',$val2->action[0])}</block>
+							<a href="{$url}" class="active"|cond="$val2->selected" title="{strip_tags($val2->description)}">{$val2->title}</a>
 							<block cond="$val2->selected">{@$selected_submenu=$val2}</block>
 						</li>
 					</ul>

@@ -16,28 +16,43 @@ class cympusadmin extends ModuleObject
 	{
 		// forbit access if the user is not an administrator
 		$oMemberModel = &getModel('member');
-		$logged_info = $oMemberModel->getLoggedInfo();
-		if($logged_info->is_admin!='Y') return $this->stop("msg_is_not_administrator");
+		if(!$this->grant->manager && !$this->grant->is_admin) return $this->stop("msg_is_not_administrator");
 
 		// change into administration layout
 		//$this->setTemplatePath('./modules/cympusadmin/tpl');
 		$this->setLayoutPath('./modules/cympusadmin/tpl');
 		$this->setLayoutFile(_CYMPUSADMIN_LAYOUT_);
 
-		// parse admin menu
-		$act = Context::get('act');
-		$oXmlParser = new XmlParser();
-		$xml_obj = $oXmlParser->loadXmlFile('./modules/cympusadmin/conf/' . _CYMPUSADMIN_MENU_);
-		$admin_menu = array();
-		$admin_menu = cympusadmin::getMenu($xml_obj->menu->item);
-		Context::set('cympusadmin_menu', $admin_menu);
-		$oModuleModel = &getModel('module');
-		$module_info = $oModuleModel->getModuleInfoXml('cympusadmin');
-		Context::set('cympus_modinfo', $module_info);
-		
+		Context::loadLang(_XE_PATH_ . 'modules/cympusadmin/lang/');
+
+		if($this->grant->is_admin)
+		{
+			// parse admin menu
+			$act = Context::get('act');
+			$oXmlParser = new XmlParser();
+			$xml_obj = $oXmlParser->loadXmlFile('./modules/cympusadmin/conf/' . _CYMPUSADMIN_MENU_);
+			$admin_menu = array();
+			$admin_menu = cympusadmin::getMenu($xml_obj->menu->item);
+			Context::set('cympusadmin_menu', $admin_menu);
+		}
+		else
+		{
+			$output = ModuleHandler::triggerCall('cympusadmin.getManagerMenu', 'before', $manager_menu);
+			if(!$output->toBool()) return $output;
+
+			Context::set('cympusadmin_menu', $manager_menu);
+			
+		}
+
 		$news = getNewsFromAgency();
 		Context::set('news', $news);
 		Context::set('admin_bar', 'false');
+
+		$oModuleModel = &getModel('module');
+		$module_info = $oModuleModel->getModuleInfoXml('cympusadmin');
+		Context::set('cympus_modinfo', $module_info);
+
+		return new Object();
 	}
 
 	/**
@@ -55,7 +70,10 @@ class cympusadmin extends ModuleObject
 	 */
 	function checkUpdate()
 	{
+		$oModuleModel = &getModel('module');
 		$oDB = &DB::getInstance();
+
+		if(!$oModuleModel->getTrigger('cympusadmin.getManagerMenu', 'cympusadmin', 'model', 'triggerGetManagerMenu', 'before')) return true;
 
 		return false;
 	}
@@ -67,6 +85,13 @@ class cympusadmin extends ModuleObject
 	function moduleUpdate()
 	{
 		$oDB = &DB::getInstance();
+		$oModuleModel = &getModel('module');
+		$oModuleController = &getController('module');
+
+		if (!$oModuleModel->getTrigger('cympusadmin.getManagerMenu', 'cympusadmin', 'model', 'triggerGetManagerMenu', 'before')) {
+		    $oModuleController->insertTrigger('cympusadmin.getManagerMenu', 'cympusadmin', 'model', 'triggerGetManagerMenu', 'before');
+		}
+
 		return new Object();
 	}
 

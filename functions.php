@@ -1,28 +1,33 @@
 <?php
 function getCympusStatus()
 {
+	$logged_info = Context::get('logged_info');
+	$cympusadmin_menu = Context::get('cympusadmin_menu');
 	$args->date = date("Ymd000000", time()-60*60*24);
 	$today = date("Ymd");
 
-	// Member Status
-	$oMemberAdminModel = &getAdminModel('member');
-	$status->member->todayCount = $oMemberAdminModel->getMemberCountByDate($today);
-	$status->member->totalCount = $oMemberAdminModel->getMemberCountByDate();
+	if($logged_info->is_admin == 'Y')
+	{
+		// Member Status
+		$oMemberAdminModel = &getAdminModel('member');
+		$status->member->todayCount = $oMemberAdminModel->getMemberCountByDate($today);
+		$status->member->totalCount = $oMemberAdminModel->getMemberCountByDate();
 
-	// Document Status
-	$oDocumentAdminModel = &getAdminModel('document');
-	$statusList = array('PUBLIC', 'SECRET');
-	$status->document->todayCount = $oDocumentAdminModel->getDocumentCountByDate($today, array(), $statusList);
-	$status->document->totalCount = $oDocumentAdminModel->getDocumentCountByDate('', array(), $statusList);
+		// Document Status
+		$oDocumentAdminModel = &getAdminModel('document');
+		$statusList = array('PUBLIC', 'SECRET');
+		$status->document->todayCount = $oDocumentAdminModel->getDocumentCountByDate($today, array(), $statusList);
+		$status->document->totalCount = $oDocumentAdminModel->getDocumentCountByDate('', array(), $statusList);
 
-	// Comment Status
-	$oCommentModel = &getModel('comment');
-	$status->comment->todayCount = $oCommentModel->getCommentCountByDate($today);
-	$status->comment->totalCount = $oCommentModel->getCommentCountByDate();
+		// Comment Status
+		$oCommentModel = &getModel('comment');
+		$status->comment->todayCount = $oCommentModel->getCommentCountByDate($today);
+		$status->comment->totalCount = $oCommentModel->getCommentCountByDate();
+	}
 
 	// shoppping-mall
 	$oNstoreAdminModel = &getAdminModel('nstore');
-	if($oNstoreAdminModel)
+	if($oNstoreAdminModel && ($logged_info->is_admin == 'Y' || $cympusadmin_menu['nstore']))
 	{
 		$salesInfoToday = $oNstoreAdminModel->getSalesInfo($today);
 		$salesInfoTotal = $oNstoreAdminModel->getSalesInfo();
@@ -35,7 +40,7 @@ function getCympusStatus()
 
 	// contents-mall
 	$oNstore_digitalAdminModel = &getAdminModel('nstore_digital');
-	if($oNstore_digitalAdminModel)
+	if($oNstore_digitalAdminModel && ($logged_info->is_admin == 'Y' || $cympusadmin_menu['nstore']))
 	{
 		$salesInfoToday = $oNstore_digitalAdminModel->getSalesInfo($today);
 		$salesInfoTotal = $oNstore_digitalAdminModel->getSalesInfo();
@@ -48,7 +53,7 @@ function getCympusStatus()
 
 	// elearning
 	$oElearningAdminModel = &getAdminModel('elearning');
-	if($oElearningAdminModel)
+	if($oElearningAdminModel && ($logged_info->is_admin == 'Y' || $cympusadmin_menu['nstore']))
 	{
 		$salesInfoToday = $oElearningAdminModel->getSalesInfo($today);
 		$salesInfoTotal = $oElearningAdminModel->getSalesInfo();
