@@ -123,6 +123,15 @@
 			<description xml:lang="zh-TW">步驟過程：匯款等待 > 完成付款 > 課程 > 課程退出 > 取消> 退款</description>
 		</item>
 		<item>
+			<title xml:lang="ko">프리패스관리</title>
+			<title xml:lang="en">Freepass Management</title>
+			<title xml:lang="jp">Freepass Management</title>
+			<title xml:lang="zh-TW">Freepass Management</title>			
+			<action>dispFreepassAdminManageEnrollment</action>
+			<action_prefix>dispFreepassAdmin</action_prefix>
+			<description xml:lang="ko">각 단계별로 처리 : 입금대기 > 입금완료 > 사용중 > 사용만료 > 취소 > 환불</description>
+		</item>
+		<item>
 			<title xml:lang="ko">재생현황</title>
 			<title xml:lang="en">Play Status</title>
 			<title xml:lang="jp">再生現況</title>

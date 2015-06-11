@@ -64,6 +64,19 @@ function getCympusStatus()
 		$status->elearning->lessonStatus = $oElearningAdminModel->getTotalStatus();
 	}
 
+	// freepass
+	$oFreepassAdminModel = &getAdminModel('freepass');
+	if($oFreepassAdminModel && ($logged_info->is_admin == 'Y' || $cympusadmin_menu['freepass']))
+	{
+		$salesInfoToday = $oFreepassAdminModel->getSalesInfo($today);
+		$salesInfoTotal = $oFreepassAdminModel->getSalesInfo();
+		$status->freepass->todayCount = $salesInfoToday->count;
+		$status->freepass->todayAmount = $salesInfoToday->amount;
+		$status->freepass->totalCount = $salesInfoTotal->count;
+		$status->freepass->totalAmount = $salesInfoTotal->amount;
+		$status->freepass->lessonStatus = $oFreepassAdminModel->getTotalStatus();
+	}
+
 	// for layer
 	$oScmsAdminModel = &getAdminModel('scms');
 	if($oScmsAdminModel)

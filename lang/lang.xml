@@ -48,6 +48,12 @@
 		<value xml:lang="jp"><![CDATA[受講申込の現況]]></value>
 		<value xml:lang="zh-TW"><![CDATA[註冊狀態]]></value>		
 	</item>
+	<item name="freepass_status">
+		<value xml:lang="ko"><![CDATA[프리패스 신청현황]]></value>
+		<value xml:lang="en"><![CDATA[Freepass Status]]></value>
+		<value xml:lang="jp"><![CDATA[Freepass Status]]></value>
+		<value xml:lang="zh-TW"><![CDATA[Freepass Status]]></value>		
+	</item>
 	<item name="nstore_status">
 		<value xml:lang="ko"><![CDATA[쇼핑몰 주문처리별 현황]]></value>
 		<value xml:lang="en"><![CDATA[Shoppingmall Status]]></value>
