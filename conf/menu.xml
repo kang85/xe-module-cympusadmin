@@ -19,6 +19,14 @@
 			<action>dispCympusadminAdminIndex</action>
 		</item>
 		<item>
+			<title xml:lang="ko">회원관리</title>
+			<title xml:lang="en">Member Management</title>
+			<title xml:lang="jp">商品管理</title>
+			<title xml:lang="zh-TW">商品管理</title>
+			<action>dispCympuserAdminMemberList</action>
+			<action_prefix>dispCympuserAdmin</action_prefix>
+		</item>
+		<item>
 			<title xml:lang="ko">상품관리</title>
 			<title xml:lang="en">Product Management</title>
 			<title xml:lang="jp">商品管理</title>

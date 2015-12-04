@@ -72,6 +72,12 @@
 		<value xml:lang="jp"><![CDATA[新規登録]]></value>
 		<value xml:lang="zh-TW"><![CDATA[新帳號]]></value>		
 	</item>
+	<item name="member_management">
+		<value xml:lang="ko"><![CDATA[회원관리]]></value>
+		<value xml:lang="en"><![CDATA[Member Management]]></value>
+		<value xml:lang="jp"><![CDATA[]]></value>
+		<value xml:lang="zh-TW"><![CDATA[]]></value>		
+	</item>
 	<item name="latest_documents">
 		<value xml:lang="ko"><![CDATA[새로운글]]></value>
 		<value xml:lang="en"><![CDATA[New Posts]]></value>
