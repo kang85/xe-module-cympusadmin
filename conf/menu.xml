@@ -19,14 +19,6 @@
 			<action>dispCympusadminAdminIndex</action>
 		</item>
 		<item>
-			<title xml lang="ko">통계현황</title>
-			<title xml:lang="en">Statistics</title>
-			<title xml:lang="jp">商品管理</title>
-			<title xml:lang="zh-TW">商品管理</title>
-			<action>dispNproductAdminModInstList</action>
-			<action_prefix>dispNproductAdmin</action_prefix>
-		</itme>
-		<item>
 			<title xml:lang="ko">회원관리</title>
 			<title xml:lang="en">Member Management</title>
 			<title xml:lang="jp">商品管理</title>
@@ -145,6 +137,15 @@
 			<title xml:lang="zh-TW">Freepass Management</title>			
 			<action>dispFreepassAdminManageEnrollment</action>
 			<action_prefix>dispFreepassAdmin</action_prefix>
+			<description xml:lang="ko">각 단계별로 처리 : 입금대기 > 입금완료 > 사용중 > 사용만료 > 취소 > 환불</description>
+		</item>
+		<item>
+			<title xml:lang="ko">패키지상품관리</title>
+			<title xml:lang="en">Package Management</title>
+			<title xml:lang="jp">Package Management</title>
+			<title xml:lang="zh-TW">Package Management</title>			
+			<action>dispPackageAdminManageEnrollment</action>
+			<action_prefix>dispPackageAdmin</action_prefix>
 			<description xml:lang="ko">각 단계별로 처리 : 입금대기 > 입금완료 > 사용중 > 사용만료 > 취소 > 환불</description>
 		</item>
 		<item>

@@ -77,6 +77,19 @@ function getCympusStatus()
 		$status->freepass->lessonStatus = $oFreepassAdminModel->getTotalStatus();
 	}
 
+	// offline
+	$oOfflineAdminModel = &getAdminModel('offline');
+	if($oOfflineAdminModel && ($logged_info->is_admin == 'Y' || $cympusadmin_menu['offline']))
+	{
+		$salesInfoToday = $oOfflineAdminModel->getSalesInfo($today);
+		$salesInfoTotal = $oOfflineAdminModel->getSalesInfo();
+		$status->offline->todayCount = $salesInfoToday->count;
+		$status->offline->todayAmount = $salesInfoToday->amount;
+		$status->offline->totalCount = $salesInfoTotal->count;
+		$status->offline->totalAmount = $salesInfoTotal->amount;
+		$status->offline->lessonStatus = $oOfflineAdminModel->getTotalStatus();
+	}
+
 	// for layer
 	$oScmsAdminModel = &getAdminModel('scms');
 	if($oScmsAdminModel)
