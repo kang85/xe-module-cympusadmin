@@ -139,7 +139,7 @@
 			<action_prefix>dispFreepassAdmin</action_prefix>
 			<description xml:lang="ko">각 단계별로 처리 : 입금대기 > 입금완료 > 사용중 > 사용만료 > 취소 > 환불</description>
 		</item>
-		<item>
+		<item cond="getClass('package_contents')">
 			<title xml:lang="ko">패키지상품관리</title>
 			<title xml:lang="en">Package Management</title>
 			<title xml:lang="jp">Package Management</title>
@@ -147,6 +147,24 @@
 			<action>dispPackageAdminManageEnrollment</action>
 			<action_prefix>dispPackageAdmin</action_prefix>
 			<description xml:lang="ko">각 단계별로 처리 : 입금대기 > 입금완료 > 사용중 > 사용만료 > 취소 > 환불</description>
+		</item>
+		<item cond="getClass('roadmap')">
+			<title xml:lang="ko">로드맵 관리</title>
+			<title xml:lang="en">Roadmap Management</title>
+			<title xml:lang="jp">Roadmap Management</title>
+			<title xml:lang="zh-TW">Roadmap Management</title>			
+			<action>dispRoadmapAdminIndex</action>
+			<action_prefix>dispRoadmapAdmin</action_prefix>
+			<description xml:lang="ko">로드맵 관리 페이지</description>
+		</item>
+		<item cond="getClass('exam')">
+			<title xml:lang="ko">모의고사 관리</title>
+			<title xml:lang="en">MockTest Management</title>
+			<title xml:lang="jp">MockTest Management</title>
+			<title xml:lang="zh-TW">MockTest Management</title>			
+			<action>dispExamAdminList</action>
+			<action_prefix>dispExamAdminList</action_prefix>
+			<description xml:lang="ko">모의고사 관리 페이지</description>
 		</item>
 		<item>
 			<title xml:lang="ko">재생현황</title>
